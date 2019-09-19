@@ -21,11 +21,11 @@ int main(int ac, char **av)
     int i;
 
     i = 1;
-    while (av[i])
+    while (i < ac)
     {
-        ft_putstr(av[i]);
-        ft_putchar('\n');
-        i++;
+            ft_putstr(av[i]);
+            ft_putchar('\n');
+            i++;
     }
-    return 0;
+    return (0);
 }
