@@ -5,82 +5,71 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nvalaena <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/14 20:33:40 by nvalaena          #+#    #+#             */
-/*   Updated: 2019/11/14 20:41:19 by nvalaena         ###   ########.fr       */
+/*   Created: 2019/11/21 19:47:26 by nvalaena          #+#    #+#             */
+/*   Updated: 2019/11/21 19:57:50 by nvalaena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int				ft_failed(char **buffer, char **stock)
+static char	**add_file(char **stack)
 {
-	ft_strdel(buffer);
-	ft_strdel(stock);
-	return (-1);
+	if (*stack == NULL)
+		*stack = ft_strnew(0);
+	return (stack);
 }
 
-int				ft_eof(char **line, char **stock, char **buffer)
+static void	new_string(char **stack, char *buffer)
 {
-	if (ft_strlen(*stock))
-	{
-		if (!(*line = ft_strdup(*stock)))
-			return (ft_failed(buffer, stock));
-		ft_strdel(stock);
-		ft_strdel(buffer);
-		return (1);
-	}
-	return (0);
+	char	*temp;
+
+	temp = ft_strjoin(*stack, buffer);
+	free(*stack);
+	*stack = temp;
 }
 
-unsigned int	ft_strchrpos(char *stock, char c)
+static int	new_line(char **stack, char **line)
 {
-	unsigned int	i;
+	char	*temp;
 
-	i = 0;
-	if (!stock)
+	if ((*stack)[0] == 0)
 		return (0);
-	while (stock[i])
+	if (ft_strchr(*stack, '\n'))
 	{
-		if (stock[i] == c)
-			return (i);
-		i++;
+		*(ft_strchr(*stack, '\n')) = '\0';
+		*line = ft_strdup(*stack);
+		temp = ft_strdup(ft_strchr(*stack, '\0') + 1);
+		free(*stack);
+		if (temp != 0)
+		{
+			*stack = ft_strdup(temp);
+			free(temp);
+		}
 	}
-	return (0);
-}
-
-int				ft_realloc_stk(char *tmp, char **stk, char **buffer)
-{
-	ft_strdel(stk);
-	if (!(*stk = ft_strdup(tmp)))
-		return (ft_failed(buffer, stk));
-	ft_strdel(&tmp);
+	else
+	{
+		*line = ft_strdup(*stack);
+		ft_memdel((void **)stack);
+	}
 	return (1);
 }
 
-int				get_next_line(const int fd, char **line)
+int			get_next_line(const int fd, char **line)
 {
-	static char	*stk = NULL;
-	char		*buffer;
-	int			ret;
-	char		*tmp;
+	static char	*fd_array[FD_MAX];
+	char		buffer[BUFF_SIZE + 1];
+	int			counter;
 
-	if (fd < 0 || !line || BUFF_SIZE < 1 || BUFF_SIZE > 10000000)
+	if (fd <= -1 || line == NULL || fd > FD_MAX || read(fd, buffer, 0) == -1)
 		return (-1);
-	stk = (!stk) ? ft_strnew(BUFF_SIZE) : stk;
-	while (!(ft_strchr(stk, '\n')))
+	add_file(&(fd_array[fd]));
+	while (!(ft_strchr(fd_array[fd], '\n')))
 	{
-		buffer = ft_strnew(BUFF_SIZE);
-		if (!(ret = read(fd, buffer, BUFF_SIZE)))
-			return (ft_eof(line, &stk, &buffer));
-		if (ret == -1 || !stk || !(tmp = ft_strjoin(stk, buffer)) ||
-				ft_realloc_stk(tmp, &stk, &buffer) == -1)
-			return (ft_failed(&buffer, &stk));
-		ft_strdel(&buffer);
+		counter = read(fd, buffer, BUFF_SIZE);
+		buffer[counter] = '\0';
+		if (counter == 0)
+			break ;
+		new_string(&(fd_array[fd]), buffer);
 	}
-	if (!(*line = ft_strsub(stk, 0, ft_strchrpos(stk, '\n'))))
-		return (ft_failed(&buffer, &stk));
-	if (!(tmp = ft_strsub(stk, ft_strchrpos(stk, '\n') + 1, ft_strlen(stk))) ||
-			ft_realloc_stk(tmp, &stk, &buffer) == -1)
-		return (ft_failed(&buffer, &stk));
-	return (1);
+	return (new_line(&(fd_array[fd]), line));
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nvalaena <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/14 20:34:48 by nvalaena          #+#    #+#             */
-/*   Updated: 2019/11/14 20:45:28 by nvalaena         ###   ########.fr       */
+/*   Created: 2019/11/21 19:57:58 by nvalaena          #+#    #+#             */
+/*   Updated: 2019/11/21 20:00:40 by nvalaena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 # define GET_NEXT_LINE_H
 
 # include <unistd.h>
-# include <stdlib.h>
+# include "libft/libft.h"
 # include <fcntl.h>
-# include "./libft/libft.h"
+# include <stdlib.h>
 
-# define BUFF_SIZE 1300
+# define BUFF_SIZE 32
+# define FD_MAX 10240
 
-int		get_next_line(int const fd, char **line);
+int	get_next_line(const int fd, char **line);
 
 #endif

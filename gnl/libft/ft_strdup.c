@@ -6,25 +6,26 @@
 /*   By: nvalaena <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 13:19:13 by nvalaena          #+#    #+#             */
-/*   Updated: 2019/09/29 22:22:47 by nvalaena         ###   ########.fr       */
+/*   Updated: 2019/11/21 19:57:06 by nvalaena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(const char *s1)
 {
-	char	*arr;
-	int		i;
+	size_t	i;
+	char	*dst;
 
-	if (!(arr = (char *)malloc(sizeof(*arr) * ft_strlen(s) + 1)))
+	dst = (char*)malloc(sizeof(*dst) * (ft_strlen(s1) + 1));
+	if (dst == NULL)
 		return (NULL);
 	i = 0;
-	while (s[i])
+	while (s1[i])
 	{
-		arr[i] = s[i];
+		dst[i] = s1[i];
 		i++;
 	}
-	arr[i] = '\0';
-	return (arr);
+	dst[i] = '\0';
+	return (dst);
 }

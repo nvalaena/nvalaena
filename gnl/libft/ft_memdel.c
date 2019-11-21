@@ -6,7 +6,7 @@
 /*   By: nvalaena <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/24 20:21:15 by nvalaena          #+#    #+#             */
-/*   Updated: 2019/09/29 21:08:32 by nvalaena         ###   ########.fr       */
+/*   Updated: 2019/11/21 20:41:03 by nvalaena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 void	ft_memdel(void **ap)
 {
-	if (ap)
-	{
-		free(*ap);
-		*ap = NULL;
-	}
+	if (!ap || !*ap)
+		return ;
+	free(*ap);
+	*ap = NULL;
 }
