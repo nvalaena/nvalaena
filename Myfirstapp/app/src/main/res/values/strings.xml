@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Сryochamber</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="random_button_text">Random</string>
+    <string name="previous">Вернуться</string>
+
+    <string name="hello_motherfucker">Hello Motherfucker</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="toast_button_text">Toast</string>
+    <string name="first_fragment_text">Приложение для криокамеры</string>
+    <string name="count_button_text">count</string>
+    <string name="measure_on_button">Начать измерение</string>
+    <string name="power_on_button">Включить</string>
+    <string name="power_off_button">Выключить</string>
+    <string name="patient">Внести пациента</string>
+    <string name="date_record">Дата записи</string>
+    <string name="diagnosis">Диагноз</string>
+    <string name="Name">Имя</string>
+    <string name="Last_name">Отчество</string>
+    <string name="Family_name">Фамилия</string>
+    <string name="Save_button">Сохранить</string>
+    <string name="height">Рост(см)</string>
+    <string name="sex">Пол (муж/жен)</string>
+</resources>
