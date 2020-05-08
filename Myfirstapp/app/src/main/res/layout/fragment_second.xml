@@ -10,101 +10,131 @@
         android:id="@+id/button_second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:text="@string/previous"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText10" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Save_button"
-        app:layout_constraintBottom_toTopOf="@+id/button_second"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
+        android:layout_marginBottom="76dp"
+        android:text="@string/Save_button"
+        app:layout_constraintBottom_toTopOf="@+id/button_second"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText2"
-        android:layout_width="130dp"
+        android:id="@+id/input_family_name"
+        android:layout_width="179dp"
         android:layout_height="40dp"
         android:hint="@string/Family_name"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText3" />
+        app:layout_constraintTop_toBottomOf="@+id/input_name" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText"
-        android:layout_width="130dp"
+        android:id="@+id/input_last_name"
+        android:layout_width="179dp"
         android:layout_height="40dp"
         android:hint="@string/Last_name"
         android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText2" />
+        app:layout_constraintEnd_toEndOf="@+id/input_family_name"
+        app:layout_constraintStart_toStartOf="@+id/input_family_name"
+        app:layout_constraintTop_toBottomOf="@+id/input_family_name" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText3"
-        android:layout_width="130dp"
+        android:id="@+id/input_name"
+        android:layout_width="179dp"
         android:layout_height="40dp"
-        android:layout_marginTop="44dp"
-        android:hint="@string/Name"
+        android:layout_marginTop="56dp"
+        android:hint="@string/First_Name"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputEditText2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText4"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:hint="Дата записи"
+        android:id="@+id/input_record_date"
+        android:layout_width="179dp"
+        android:layout_height="40dp"
+        android:focusable="false"
+        android:hint="@string/record_date"
+        android:inputType="date"
+        android:longClickable="false"
         android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
+        app:layout_constraintEnd_toEndOf="@+id/input_weight"
+        app:layout_constraintStart_toStartOf="@+id/input_weight"
+        app:layout_constraintTop_toBottomOf="@+id/input_weight" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText5"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/input_height"
+        android:layout_width="179dp"
+        android:layout_height="40dp"
         android:hint="@string/height"
+        android:inputType="number"
         android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText4" />
+        app:layout_constraintEnd_toEndOf="@+id/input_last_name"
+        app:layout_constraintStart_toStartOf="@+id/input_last_name"
+        app:layout_constraintTop_toBottomOf="@+id/sexSpinner" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText7"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:hint="Вес(кг)"
+        android:id="@+id/input_weight"
+        android:layout_width="179dp"
+        android:layout_height="40dp"
+        android:hint="@string/Weight"
+        android:inputType="number"
         android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText5" />
+        app:layout_constraintEnd_toEndOf="@+id/input_height"
+        app:layout_constraintStart_toStartOf="@+id/input_height"
+        app:layout_constraintTop_toBottomOf="@+id/input_height" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText8"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/sex"
+        android:id="@+id/input_procedure_number"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:hint="@string/procedure_number"
+        android:inputType="number"
         android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText7" />
+        app:layout_constraintEnd_toEndOf="@+id/input_record_date"
+        app:layout_constraintStart_toStartOf="@+id/input_record_date"
+        app:layout_constraintTop_toBottomOf="@+id/input_record_date" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText10"
-        android:layout_width="80dp"
+    <Button
+        android:id="@+id/button_database"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Кол-во пройденных процедур"
-        android:textSize="12sp"
+        android:text="@string/database"
+        app:layout_constraintBottom_toBottomOf="@+id/save_button"
+        app:layout_constraintEnd_toStartOf="@+id/save_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/save_button" />
+
+    <Spinner
+        android:id="@+id/sexSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/sex_array"
+        app:layout_constraintEnd_toEndOf="@+id/input_last_name"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_last_name"
+        app:layout_constraintTop_toBottomOf="@+id/input_last_name" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="339dp"
+        android:layout_height="423dp"
+        android:background="#1E673AB7"
+        android:src="@android:drawable/list_selector_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText8" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/todo" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

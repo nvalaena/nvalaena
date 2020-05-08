@@ -18,10 +18,27 @@
     <string name="patient">Внести пациента</string>
     <string name="date_record">Дата записи</string>
     <string name="diagnosis">Диагноз</string>
-    <string name="Name">Имя</string>
+    <string name="First_Name">Имя</string>
     <string name="Last_name">Отчество</string>
     <string name="Family_name">Фамилия</string>
     <string name="Save_button">Сохранить</string>
     <string name="height">Рост(см)</string>
     <string name="sex">Пол (муж/жен)</string>
+    <string name="record_date">Дата записи</string>
+    <string name="Weight">Вес(кг)</string>
+    <string name="procedure_number">Кол-во пройденных процедур</string>
+    <string name="database">dataBase</string>
+    <string name="third_fragment_to_first">Вернуться</string>
+    <string name="saved_patients">Сохраненные пациенты</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last name</string>
+    <string name="weight">TextView</string>
+    <string name="todo">TODO</string>
+    <string name="recordDate">recordDate</string>
+    <string name="FamilyName">Family name</string>
+    <string-array name="sex_array">
+        <item>Мужчина</item>
+        <item>Женщина</item>
+    </string-array>
+
 </resources>
